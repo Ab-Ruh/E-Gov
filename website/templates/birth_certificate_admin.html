@@ -1,0 +1,186 @@
+{% extends "base.html" %} {% block title %}BirthCertificate{% endblock %} {%
+    block content %}
+    <link rel="stylesheet" href="/static/style_form.css" />
+    <div class="container mt-5 mb-5">
+      <form
+        method="POST"
+        enctype="multipart/form-data"
+        onsubmit="return validateForm()"
+      >
+      <h3 align="center">Application</h3>
+      <div class="container mt-5">
+        <div class="row text-center">
+          <div class="col-lg-4 col-md-6 mx-auto">
+            <div class="service-card mx-auto">
+              <div class="d-flex align-items-center justify-content-center">
+                <img
+                  id="cardImage"
+                  class="card-img-top2"
+                  src="/static/uploads/{{ Birth_certificate.photo.split('/')[-1] }}"
+                  alt="Placeholder Image"
+                />
+              </div>
+              <input
+                type="file"
+                id="fileInput"
+                name="fileInput"
+                style="display: none"
+                onchange="previewImage(this)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              name="firstName"
+              value="{{Birth_certificate.firstName}}"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="fatherName">Father's Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fatherName"
+              name="fatherName"
+              value="{{Birth_certificate.fatherName}}"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="gfatherName">Grandfather's Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="gfatherName"
+              name="gfatherName"
+              value="{{Birth_certificate.gfatherName}}"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="birthDay">Date of Birth</label>
+            <input
+              type="date"
+              class="form-control"
+              id="birthDay"
+              name="birthDay"
+              value="{{Birth_certificate.birthDay}}"
+              readonly
+            />
+          </div>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <input
+              type="text"
+              class="form-control"
+              id="gender"
+              name="gender"
+              value="{{Birth_certificate.gender}}"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="region">Region</label>
+            <input
+              type="text"
+              class="form-control"
+              id="region"
+              name="region"
+              value="{{Birth_certificate.region}}"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="fatherfullName">Father's Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fatherfullName"
+              name="fatherfullName"
+              value="{{Birth_certificate.fatherfullName}}"
+              readonly
+            />
+          </div>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="motherfullName">Mother's Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="motherfullName"
+              name="motherfullName"
+              value="{{Birth_certificate.motherfullName}}"
+              readonly
+            />
+          </div>
+        </div>
+      </div>
+    
+      <br />
+      <div class="d-flex justify-content-center">
+        <div class="btn-group" role="group">
+          <button
+        type="submit"
+        name="action"
+        value="approve"
+        class="btn btn-success"
+      >
+        Approve
+      </button>
+      <button type="submit" name="action" value="reject" class="btn btn-danger">
+        Reject
+      </button>
+          </div>
+          </div>
+    </form>
+
+    <script>
+      function previewImage(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+            document.getElementById('cardImage').src = e.target.result;
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+var photoPath = "/static/uploads/{{ Birth_certificate.photo.split('/')[-1] }}"
+if (photoPath && photoPath !== "https://via.placeholder.com/300x400") {
+      var image = document.getElementById("cardImage");
+      image.src = photoPath;
+    }
+    </script>
+    {% endblock %}
+    

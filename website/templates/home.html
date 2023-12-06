@@ -1,0 +1,105 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<head>
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='style_home.css') }}"
+  />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='style_home.css') }}"
+  />
+  <script src="{{ url_for('static', filename='script_form.js') }}"></script>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="card service-card">
+          <img
+            src="static/assets/Driver's License Renewal.jpg"
+            class="card-img-top"
+            alt="Driver's License Renewal"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Driver's License</h5>
+            <p class="card-text">
+              Start your journey towards a Driver's License! Our user-friendly
+            form makes the application process quick and easy. Get ready for
+            the freedom to explore the open road.
+            </p>
+            <button
+              class="btn btn-primary btn-apply"
+              onclick="redirectToForm('/driver_license_renewal', 'button2')"
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="card service-card">
+          <img
+            src="static/assets/National Id.jpg"
+            class="card-img-top"
+            alt="New National ID"
+          />
+          <div class="card-body">
+            <h5 class="card-title">National ID</h5>
+            <p class="card-text">
+              Apply for your National ID to secure your identity and access
+            essential services. Our streamlined process ensures a hassle-free
+            application experience.
+            </p>
+            <button
+              class="btn btn-primary btn-apply"
+              onclick="redirectToForm('/national_id', 'button2')"
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="card service-card">
+          <img
+            src="static/assets/Birth Certificate.jpg"
+            class="card-img-top"
+            alt="Birth Certificate"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Birth Certificate</h5>
+            <p class="card-text">
+              Secure your official Birth Certificate with our streamlined
+            application process. Experience a hassle-free journey to obtaining
+            this vital document.
+            </p>
+            <button
+              class="btn btn-primary btn-apply"
+              onclick="redirectToForm('/birth_certificate', 'button2')"
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function redirectToForm(variable, buttonType) {
+      const route = "/form" + variable + "?button_type=" + buttonType;
+      console.log(route);
+      window.location.href = route;
+    }
+  </script>
+</body>
+{% endblock %}
