@@ -30,7 +30,6 @@
 
 	<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
 	<title>E-GOV</title>
-</head>
 <!-- Favicons -->
 <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 <!-- Google Fonts -->
@@ -41,6 +40,7 @@
 	rel="stylesheet" />
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
+<body>
 <!-- Hero -->
 <header>
 
@@ -80,7 +80,7 @@
 <main id="main">
 	<!-- ======= About Section ======= -->
 	<section style="color: aliceblue;" id="about" class="about" data-aos="fade-up">
-		<div class="container fade-in">
+		<div class="container">
 			<div class="section-title">
 				<span class="section-subtitle">About</span>
 				<h2 class="invisible">About</h2>
@@ -394,7 +394,7 @@
 		class="bi bi-arrow-up-short"></i></a>
 <div id="preloader"></div>
 
-
+</body>
 <script>
 	document.addEventListener("DOMContentLoaded", function () {
 		const elements = document.querySelectorAll(".fade-in");
@@ -423,3 +423,4 @@
 		fadeInOnScroll(); // Trigger the animation on page load
 	});
 </script>
+</html>
