@@ -1,8 +1,8 @@
 from flask_frozen import Freezer
-from website import create_app  # Replace 'your_flask_app' with the actual name of your Flask app
+from website import create_app
 
 app = create_app()
-freezer = Freezer(app)
+freezer = Freezer(app, with_static_files=True)  # Use with_static_files=True to include static files
 
 @freezer.register_generator
 def landing():
